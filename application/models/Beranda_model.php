@@ -11,9 +11,9 @@ class Beranda_model extends CI_Model
         date_default_timezone_set("Asia/Kuala_lumpur");
         $tanggal = date('d-m-Y');
         $waktu = $this->db->get_where('tb_waktu', ['id' => 1])->row_array();
-        $jam = $waktu['h'].' : '.$waktu['m'];
-        $jamttp = $waktu['h_tutup_pagi'].' : '.$waktu['m_tutup_pagi'];
-        return $this->db->from('tb_pegawai')->join('tb_kehadiran', 'tb_kehadiran.nip=tb_pegawai.nip')->where('tanggal', $tanggal)->where('jam >',$jam)->where('jam <',$jamttp)->where("(role_id='2')")->get()->result();
+        $jam = $waktu['h'];
+        $jamttp = $waktu['h_tutup_pagi'];
+        return $this->db->from('tb_pegawai')->join('tb_kehadiran', 'tb_kehadiran.nip=tb_pegawai.nip')->where('tanggal', $tanggal)->where('jam >=',$jam)->where('jam <=',$jamttp)->where("(role_id='2')")->get()->result();
     }
 
     public function siang()
@@ -21,9 +21,9 @@ class Beranda_model extends CI_Model
         date_default_timezone_set("Asia/Kuala_lumpur");
         $tanggal = date('d-m-Y');
         $waktu = $this->db->get_where('tb_waktu', ['id' => 1])->row_array();
-        $jam = $waktu['h_siang'].' : '.$waktu['m_siang'];
-        $jamttp = $waktu['h_tutup_siang'].' : '.$waktu['m_tutup_siang'];
-        return $this->db->from('tb_pegawai')->join('tb_kehadiran', 'tb_kehadiran.nip=tb_pegawai.nip')->where('tanggal', $tanggal)->where('jam >',$jam)->where('jam <',$jamttp)->where("(role_id='2')")->get()->result();
+        $jam = $waktu['h_siang'];
+        $jamttp = $waktu['h_tutup_siang'];
+        return $this->db->from('tb_pegawai')->join('tb_kehadiran', 'tb_kehadiran.nip=tb_pegawai.nip')->where('tanggal', $tanggal)->where('jam >=',$jam)->where('jam <=',$jamttp)->where("(role_id='2')")->get()->result();
     }
 
     public function sore()
@@ -31,9 +31,11 @@ class Beranda_model extends CI_Model
         date_default_timezone_set("Asia/Kuala_lumpur");
         $tanggal = date('d-m-Y');
         $waktu = $this->db->get_where('tb_waktu', ['id' => 1])->row_array();
-        $jam = $waktu['h_sore'].' : '.$waktu['m_sore'];
-        $jamttp = $waktu['h_tutup_sore'].' : '.$waktu['m_tutup_sore'];
-        return $this->db->from('tb_pegawai')->join('tb_kehadiran', 'tb_kehadiran.nip=tb_pegawai.nip')->where('tanggal', $tanggal)->where('jam >',$jam)->where('jam <',$jamttp)->where("(role_id='2')")->get()->result();
+        $jam = $waktu['h_sore'];
+        $jamttp = $waktu['h_tutup_sore'];
+        
+        // return $waktu['h_sore'].' : '.$waktu['m_sore'];
+        return $this->db->from('tb_pegawai')->join('tb_kehadiran', 'tb_kehadiran.nip=tb_pegawai.nip')->where('tanggal', $tanggal)->where('jam >=',$jam)->where('jam <=',$jamttp)->where("(role_id='2')")->get()->result();
     }
 
     public function kehadiran()

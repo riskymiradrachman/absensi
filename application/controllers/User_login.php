@@ -189,7 +189,7 @@ class User_login extends CI_Controller
         $data['tutup'] = 'Form Absensi Sore Tutup';
         $data['user'] = $this->db->get_where('tb_pegawai', ['nip' =>
         $this->session->userdata('nip')])->row_array();
-
+// 
 
         if ($this->session->userdata('status') != 'form_tutup') {
             $this->load->view('errors/html/error_404');

@@ -19,7 +19,8 @@ class Admin extends CI_Controller
         $data['pagi'] = $this->Beranda_model->pagi();
         $data['siang'] = $this->Beranda_model->siang();
         $data['sore'] = $this->Beranda_model->sore();
-
+// var_dump ($this->Beranda_model->sore());
+// die;
         $this->load->view('admin/template/header', $data);
         $this->load->view('admin/home/index', $data);
         $this->load->view('admin/template/footer');

@@ -37,9 +37,9 @@
               <i class="material-icons">content_paste</i> Berdasarkan Kriteria
             </a>
             <div class="dropdown-menu dropdown-with-icons">
-              <a href="#" class="dropdown-item">
+              <!-- <a href="#" class="dropdown-item">
                 <i class="material-icons">layers</i> Umur 50 Tahun Ke Atas
-              </a>
+              </a> -->
               <a href="<?= base_url('admin/sakit') ?>" class="dropdown-item">
                 <i class="material-icons">sick</i> Sakit
               </a>
